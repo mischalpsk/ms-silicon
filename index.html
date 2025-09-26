@@ -6,27 +6,6 @@
     <title>M+S Silicon GmbH & Co KG - Innovative Silikontechnologie</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        button.play-btn {
-  margin-top: 15px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background-color: #0057b8;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,87,184,0.4);
-  transition: background-color 0.3s ease;
-}
-
-button.play-btn:hover {
-  background-color: #003f80;
-}
-
-button.play-btn:active {
-  background-color: #002d59;
-}
         * {
             margin: 0;
             padding: 0;
@@ -42,24 +21,7 @@ button.play-btn:active {
             --text-color: #374151;
             --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
         }
-<script>
-  const buttons = document.querySelectorAll('.play-btn');
-  let currentAudio = null;
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const audioSrc = button.getAttribute('data-audio');
-
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-
-      currentAudio = new Audio(audioSrc);
-      currentAudio.play();
-    });
-  });
-</script>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -546,17 +508,6 @@ button.play-btn:active {
     </style>
 </head>
 <body>
-    <script>
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("loading");
-        loader.classList.add("hidden");
-
-        const elements = document.querySelectorAll('.fade-in');
-        elements.forEach(el => {
-            el.classList.add('visible');
-        });
-    });
-</script>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -615,10 +566,6 @@ button.play-btn:active {
             </div>
         </div>
     </section>
-
-    <section id="einleitung">
-  <button class="play-btn" data-audio="einleitung.mp3">Audio abspielen</button>
-</section>
 
     <!-- History Section -->
     <section id="history" class="section" style="background: var(--light-color);">
@@ -831,9 +778,3 @@ button.play-btn:active {
     </section>
 
     <!-- Contact Section
-
-
-
-
-
-
