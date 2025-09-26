@@ -507,78 +507,21 @@
         }
     </style>
 </head>
-<script>
-// Loading Screen
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementById('loading').classList.add('hidden');
-    }, 1000);
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// CTA Button smooth scroll
-document.querySelector('.cta-button').addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    const targetSection = document.querySelector(targetId);
-    if (targetSection) {
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-});
-
-// Fade in animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observe all fade-in elements
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-});
-
-// Mobile menu toggle
-const mobileMenu = document.querySelector('.mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
-
-mobileMenu.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
-});
-
-// Navbar background on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-    }
-});
-</script>
 <body>
+<script>
+    // Ladeanimation ausblenden
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("loading");
+        loader.classList.add("hidden");
+
+        // Sichtbarkeit für fade-in Elemente aktivieren
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            el.classList.add('visible');
+        });
+    });
+</script>
+
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -766,7 +709,7 @@ window.addEventListener('scroll', function() {
                         <h3>Silikondichtungen</h3>
                     </div>
                     <div class="product-body">
-                        <p>Hochwertige Dichtungslösungen für Maschinen und Fahrzeuge. Diese werden benutzt, um Lücken abzudichten, zum Beispiel in Maschinen oder Autos, damit kein Wasser oder Luft durchkommt.</p>
+                        <p>Hochwertige Dichtungslösungen für Maschinen und Fahrzeuge. Unsere Silikondichtungen bieten zuverlässigen Schutz gegen Wasser, Luft und andere Medien.</p>
                         <ul style="margin-top: 1rem; padding-left: 1rem;">
                             <li>Temperaturbeständig</li>
                             <li>Langlebig und flexibel</li>
@@ -780,7 +723,7 @@ window.addEventListener('scroll', function() {
                         <h3>Silikonformteile</h3>
                     </div>
                     <div class="product-body">
-                        <p>Genau geformte Silikonstücke, die in technischen Geräten eingebaut werden. Zum Beispiel können das Dichtungen, Dämpfer oder Schutzteile sein.</p>
+                        <p>Präzise geformte Silikonstücke für technische Anwendungen. Von Dämpfern bis zu Schutzteilen - maßgeschneidert für Ihre Anforderungen.</p>
                         <ul style="margin-top: 1rem; padding-left: 1rem;">
                             <li>Komplexe Geometrien möglich</li>
                             <li>Hohe Präzision</li>
@@ -794,39 +737,11 @@ window.addEventListener('scroll', function() {
                         <h3>Flüssigsilikone (LSR)</h3>
                     </div>
                     <div class="product-body">
-                        <p>Eine spezielle flüssige Form von Silikon, die in Spritzgussmaschinen verarbeitet wird, um sehr präzise und komplexe Teile herzustellen. Diese Methode wird oft für kleine und komplizierte Teile verwendet.</p>
+                        <p>Hochmoderne LSR-Technologie für präzise und komplexe Bauteile. Ideal für kleine, filigrane Komponenten mit höchsten Qualitätsansprüchen.</p>
                         <ul style="margin-top: 1rem; padding-left: 1rem;">
                             <li>Spritzgusstechnologie</li>
                             <li>Sehr präzise Abformung</li>
                             <li>Medizintechnik-geeignet</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <i class="fas fa-plug"></i>
-                        <h3>Kabelschutz-Systeme</h3>
-                    </div>
-                    <div class="product-body">
-                        <p>Kabelschutz-Systeme dienen dazu, elektrische Leitungen vor mechanischen Beschädigungen, Feuchtigkeit, Chemikalien oder Hitze zu schützen – z. B. in Industrieanlagen oder Fahrzeugen.</p>
-                        <ul style="margin-top: 1rem; padding-left: 1rem;">
-                            <li>Schutz vor Umwelteinflüssen</li>
-                            <li>Mechanische Stabilität</li>
-                            <li>Industrielle Anwendungen</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <i class="fas fa-stream"></i>
-                        <h3>Silikon-Extrudate</h3>
-                    </div>
-                    <div class="product-body">
-                        <p>Silikon-Extrudate werden verwendet, um flexible, hitze- und witterungsbeständige Dichtungen, Schläuche oder Profile herzustellen – z. B. für Maschinen, Medizin oder die Bauindustrie.</p>
-                        <ul style="margin-top: 1rem; padding-left: 1rem;">
-                            <li>Hitze- und witterungsbeständig</li>
-                            <li>Flexible Profile und Schläuche</li>
-                            <li>Vielseitige Anwendungen</li>
                         </ul>
                     </div>
                 </div>
@@ -848,5 +763,40 @@ window.addEventListener('scroll', function() {
         </div>
     </section>
 
-    <!-- Contact Section
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title fade-in">Kontakt</h2>
+            <div class="info-grid">
+                <div class="info-card fade-in">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Standort</h3>
+                    <p>M+S Silicon GmbH & Co KG<br>
+                    Dortmund, Deutschland<br>
+                    Über 10.000 m² Produktionsfläche</p>
+                </div>
+                <div class="info-card fade-in">
+                    <i class="fas fa-phone"></i>
+                    <h3>Kontakt</h3>
+                    <p>Telefon: +49 (0) XXX XXXXXXX<br>
+                    E-Mail: info@ms-silicon.de<br>
+                    Öffnungszeiten: Mo-Fr 8:00-17:00</p>
+                </div>
+                <div class="info-card fade-in">
+                    <i class="fas fa-award"></i>
+                    <h3>Auszeichnungen</h3>
+                    <p>Finalist beim Dortmunder Wirtschaftspreis<br>
+                    Chlorfreie Produktion seit 2022<br>
+                    Zertifizierte Qualitätsstandards</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>M+S Silicon GmbH & Co KG</h3>
+                    <p>Ihr zuverlässiger Partner für innovative Silikontechnologie und maßgeschneiderte Lösungen seit 2001.</p>
