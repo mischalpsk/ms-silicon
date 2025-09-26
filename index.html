@@ -42,7 +42,24 @@ button.play-btn:active {
             --text-color: #374151;
             --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
         }
+<script>
+  const buttons = document.querySelectorAll('.play-btn');
+  let currentAudio = null;
 
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const audioSrc = button.getAttribute('data-audio');
+
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      currentAudio = new Audio(audioSrc);
+      currentAudio.play();
+    });
+  });
+</script>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -814,6 +831,7 @@ button.play-btn:active {
     </section>
 
     <!-- Contact Section
+
 
 
 
