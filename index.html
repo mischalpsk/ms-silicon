@@ -508,6 +508,17 @@
     </style>
 </head>
 <body>
+    <script>
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("loading");
+        loader.classList.add("hidden");
+
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            el.classList.add('visible');
+        });
+    });
+</script>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -778,3 +789,4 @@
     </section>
 
     <!-- Contact Section
+
