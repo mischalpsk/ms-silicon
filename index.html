@@ -279,42 +279,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Organigramm */
-        .org-chart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .org-level {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .org-box {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            min-width: 150px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .org-box.management {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .org-box:hover {
-            border-color: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
         /* Products Grid */
         .products-grid {
             display: grid;
@@ -456,11 +420,6 @@
                 left: 21px;
             }
 
-            .org-level {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .section-title {
                 font-size: 2rem;
             }
@@ -532,10 +491,8 @@
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">Über uns</a></li>
                 <li><a href="#history" class="nav-link">Geschichte</a></li>
-                <li><a href="#team" class="nav-link">Team</a></li>
                 <li><a href="#training" class="nav-link">Ausbildung</a></li>
                 <li><a href="#products" class="nav-link">Produkte</a></li>
-                <li><a href="#contact" class="nav-link">Kontakt</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -611,49 +568,6 @@
                     <div class="timeline-content">
                         <h3>2022 - Nachhaltigkeit</h3>
                         <p>Umstellung auf chlorfreie Produktion und Reduzierung der Umweltbelastung auf Null. Auszeichnung als Finalist beim Dortmunder Wirtschaftspreis.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Structure -->
-    <section id="team" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Organisationsstruktur</h2>
-            <div class="org-chart fade-in">
-                <div class="org-level">
-                    <div class="org-box management">
-                        <i class="fas fa-crown"></i>
-                        <h4>Geschäftsführung</h4>
-                    </div>
-                </div>
-                <div class="org-level">
-                    <div class="org-box">
-                        <i class="fas fa-industry"></i>
-                        <h4>Produktion</h4>
-                    </div>
-                    <div class="org-box">
-                        <i class="fas fa-flask"></i>
-                        <h4>Entwicklung</h4>
-                    </div>
-                    <div class="org-box">
-                        <i class="fas fa-check-circle"></i>
-                        <h4>Qualitätssicherung</h4>
-                    </div>
-                </div>
-                <div class="org-level">
-                    <div class="org-box">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Vertrieb</h4>
-                    </div>
-                    <div class="org-box">
-                        <i class="fas fa-file-alt"></i>
-                        <h4>Verwaltung</h4>
-                    </div>
-                    <div class="org-box">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Ausbildung</h4>
                     </div>
                 </div>
             </div>
@@ -788,4 +702,32 @@
         </div>
     </section>
 
-    <!-- Contact Section
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>M+S Silicon GmbH & Co KG</h3>
+                    <p>Ihr zuverlässiger Partner für innovative Silikontechnologie und maßgeschneiderte Lösungen seit 2001.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Telefon: +49(0)231-967890-0<br>
+                    E-Mail: info@ms-silicon.de<br>
+                    Dortmund, Deutschland</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Unternehmen</h3>
+                    <p>160 Mitarbeiter<br>
+                    12 Auszubildende<br>
+                    Über 10.000 m² Produktionsfläche</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 M+S Silicon GmbH & Co KG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
