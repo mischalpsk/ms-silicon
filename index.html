@@ -464,6 +464,22 @@
                 transform: rotate(360deg);
             }
         }
+		.audio-btn {
+    display: inline-block;
+    margin: 0.5rem 0 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.audio-btn:hover {
+    background: var(--accent-color);
+}
     </style>
 </head>
 <body>
@@ -514,7 +530,8 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Über unser Unternehmen</h2>
+			<h2 class="section-title fade-in">Über unser Unternehmen</h2>
+			<button class="audio-btn" data-audio="einleitung">🔊 Abspielen</button>
             <div class="info-grid">
                 <div class="info-card fade-in">
                     <i class="fas fa-building"></i>
@@ -538,7 +555,8 @@
     <!-- History Section -->
     <section id="history" class="section" style="background: var(--light-color);">
         <div class="container">
-            <h2 class="section-title fade-in">Unsere Geschichte</h2>
+			<h2 class="section-title fade-in">Unsere Geschichte</h2>
+			<button class="audio-btn" data-audio="geschichte">🔊 Abspielen</button>
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-content">
@@ -578,6 +596,7 @@
     <section id="training" class="section" style="background: var(--light-color);">
         <div class="container">
             <h2 class="section-title fade-in">Ausbildungsberufe</h2>
+			<button class="audio-btn" data-audio="ausbildungsberufe">🔊 Abspielen</button>
             <p class="fade-in" style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Starten Sie Ihre Karriere bei M+S Silicon - Wir bieten vielfältige Ausbildungsmöglichkeiten in zukunftsorientierten Berufen.</p>
             <div class="training-grid">
                 <div class="training-card fade-in">
@@ -613,6 +632,7 @@
     <section id="products" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Produkte & Dienstleistungen</h2>
+			<button class="audio-btn" data-audio="produkte">🔊 Abspielen</button>
             <div class="products-grid">
                 <div class="product-card fade-in">
                     <div class="product-header">
@@ -711,12 +731,6 @@
                     <p>Ihr zuverlässiger Partner für innovative Silikontechnologie und maßgeschneiderte Lösungen seit 2001.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Kontakt</h3>
-                    <p>Telefon: +49(0)231-967890-0<br>
-                    E-Mail: info@ms-silicon.de<br>
-                    Dortmund, Deutschland</p>
-                </div>
-                <div class="footer-section">
                     <h3>Unternehmen</h3>
                     <p>160 Mitarbeiter<br>
                     12 Auszubildende<br>
@@ -724,10 +738,46 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 M+S Silicon GmbH & Co KG. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
+<script>
+document.querySelectorAll('.audio-btn').forEach(btn => {
+    let currentAudio = null;
+    
+    btn.addEventListener('click', () => {
+        const audioName = btn.getAttribute('data-audio');
+        const icon = btn.querySelector('i');
+        
+        // Wenn bereits Audio läuft, stoppe es
+        if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            icon.className = 'fas fa-play';
+            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
+            currentAudio = null;
+            return;
+        }
+        
+        // Neues Audio starten
+        currentAudio = new Audio(`${audioName}.mp3`);
+        
+        currentAudio.play().then(() => {
+            icon.className = 'fas fa-pause';
+            btn.innerHTML = '<i class="fas fa-pause"></i> Audio pausieren';
+        }).catch(err => {
+            console.log('Audio konnte nicht abgespielt werden:', err);
+        });
+        
+        // Wenn Audio zu Ende ist
+        currentAudio.addEventListener('ended', () => {
+            icon.className = 'fas fa-play';
+            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
+            currentAudio = null;
+        });
+    });
+});
 
+</script>
 </body>
 </html>
