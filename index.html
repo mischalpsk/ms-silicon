@@ -948,79 +948,19 @@
         </div>
     </footer>
 <script>
-// === MOBILE NAVIGATION ===
-document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const navMenu = document.querySelector(".nav-menu");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  // Öffnen / Schließen bei Klick auf Hamburger
-  mobileMenu.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    mobileMenu.classList.toggle("open");
-  });
-
-  // Menü schließen, wenn ein Link angeklickt wurde
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      mobileMenu.classList.remove("open");
-    });
-  });
-});
-</script>
-<script>
-document.querySelectorAll('.audio-btn').forEach(btn => {
-    let currentAudio = null;
-    
-    btn.addEventListener('click', () => {
-        const audioName = btn.getAttribute('data-audio');
-        const icon = btn.querySelector('i');
-        
-        // Wenn bereits Audio läuft, stoppe es
-        if (currentAudio && !currentAudio.paused) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            icon.className = 'fas fa-play';
-            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
-            currentAudio = null;
-            return;
-        }
-        
-        // Neues Audio starten
-        currentAudio = new Audio(`${audioName}.mp3`);
-        
-        currentAudio.play().then(() => {
-            icon.className = 'fas fa-pause';
-            btn.innerHTML = '<i class="fas fa-pause"></i> Audio pausieren';
-        }).catch(err => {
-            console.log('Audio konnte nicht abgespielt werden:', err);
-        });
-        
-        // Wenn Audio zu Ende ist
-        currentAudio.addEventListener('ended', () => {
-            icon.className = 'fas fa-play';
-            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
-            currentAudio = null;
-        });
-    });
-});
-</script>
-<script>
-// === MOBILE OPTIMIERUNGSSKRIPT ===
 document.addEventListener("DOMContentLoaded", () => {
     const mobileMenu = document.querySelector(".mobile-menu");
     const navMenu = document.querySelector(".nav-menu");
     const navLinks = document.querySelectorAll(".nav-link");
     const navbar = document.querySelector(".navbar");
 
-    // Mobile-Menü ein-/ausblenden
+    // === Mobile-Menü öffnen/schließen ===
     mobileMenu.addEventListener("click", () => {
         navMenu.classList.toggle("active");
         mobileMenu.classList.toggle("open");
     });
 
-    // Menü schließen nach Klick auf Link
+    // === Menü schließen bei Klick auf einen Link ===
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             navMenu.classList.remove("active");
@@ -1028,19 +968,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Navbar verkleinern beim Scrollen
+    // === Navbar verkleinern beim Scrollen ===
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 80) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
+        navbar.classList.toggle("scrolled", window.scrollY > 80);
     });
 });
 </script>
 </body>
 </html>
-
-
-
-
