@@ -1031,34 +1031,44 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   let currentAudio = null;
+  let currentButton = null;
 
   document.querySelectorAll('.audio-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      const icon = btn.querySelector('i');
       const audioName = btn.getAttribute('data-audio');
-      const audioFile = `${audioName}.mp3`; // Falls deine Dateien im Unterordner liegen: `audio/${audioName}.mp3`
+      const audioFile = `${audioName}.mp3`; // ggf. anpassen: audio/${audioName}.mp3
 
-      // Wenn gerade ein anderes Audio läuft → stoppen
+      // Falls bereits ein Audio läuft → stoppen
       if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
+        currentButton.classList.remove('playing');
+        currentButton.querySelector('i').classList.replace('fa-pause', 'fa-play');
+        currentButton = null;
         currentAudio = null;
-        btn.textContent = "🔊 Abspielen";
         return;
       }
 
       // Neues Audio starten
       currentAudio = new Audio(audioFile);
-      currentAudio.play().then(() => {
-        btn.textContent = "⏸️ Pausieren";
-      }).catch(err => {
+      currentButton = btn;
+      btn.classList.add('playing');
+      icon.classList.replace('fa-play', 'fa-pause');
+
+      currentAudio.play().catch(err => {
         console.error("Fehler beim Abspielen:", err);
         alert("Audio konnte nicht abgespielt werden. Datei fehlt?");
+        btn.classList.remove('playing');
+        icon.classList.replace('fa-pause', 'fa-play');
       });
 
-      // Wenn Audio zu Ende → Button zurücksetzen
+      // Wenn Audio zu Ende → zurücksetzen
       currentAudio.addEventListener("ended", () => {
-        btn.textContent = "🔊 Abspielen";
+        btn.classList.remove('playing');
+        icon.classList.replace('fa-pause', 'fa-play');
         currentAudio = null;
+        currentButton = null;
       });
     });
   });
@@ -1066,7 +1076,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
-
-
-
