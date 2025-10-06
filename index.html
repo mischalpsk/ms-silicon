@@ -1,987 +1,1010 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M+S Silicon GmbH & Co KG - Innovative Silikontechnologie</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M+S Silicon GmbH & Co KG - Innovative Silikontechnologie</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #3b82f6;
-            --accent-color: #06b6d4;
-            --dark-color: #1f2937;
-            --light-color: #f8fafc;
-            --text-color: #374151;
-            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
-        }
+:root {
+--primary-color: #1e3a8a;
+--secondary-color: #3b82f6;
+--accent-color: #06b6d4;
+--dark-color: #1f2937;
+--light-color: #f8fafc;
+--text-color: #374151;
+--gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: var(--text-color);
+overflow-x: hidden;
+}
 
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
+/* Navigation */
+.navbar {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+z-index: 1000;
+padding: 1rem 0;
+transition: all 0.3s ease;
+box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+.nav-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 2rem;
+}
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+background: var(--gradient);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+.nav-menu {
+display: flex;
+list-style: none;
+gap: 2rem;
+}
 
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+.nav-link {
+text-decoration: none;
+color: var(--text-color);
+font-weight: 500;
+transition: all 0.3s ease;
+position: relative;
+}
 
-        .nav-link:hover {
-            color: var(--secondary-color);
-        }
+.nav-link:hover {
+color: var(--secondary-color);
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
+.nav-link::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background: var(--gradient);
+transition: width 0.3s ease;
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+.nav-link:hover::after {
+width: 100%;
+}
 
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+.mobile-menu {
+display: none;
+flex-direction: column;
+cursor: pointer;
+}
 
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
+.mobile-menu span {
+width: 25px;
+height: 3px;
+background: var(--primary-color);
+margin: 3px 0;
+transition: 0.3s;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+/* Hero Section */
+.hero {
+height: 100vh;
+background: var(--gradient);
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: white;
+position: relative;
+overflow: hidden;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
-            background-size: cover;
-        }
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+background-size: cover;
+}
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-            position: relative;
-        }
+.hero-content {
+max-width: 800px;
+z-index: 2;
+position: relative;
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
+.hero h1 {
+font-size: 3.5rem;
+margin-bottom: 1rem;
+animation: fadeInUp 1s ease;
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
+.hero p {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+animation: fadeInUp 1s ease 0.3s both;
+}
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
+.cta-button {
+display: inline-block;
+padding: 1rem 2rem;
+background: rgba(255, 255, 255, 0.2);
+color: white;
+text-decoration: none;
+border-radius: 50px;
+border: 2px solid rgba(255, 255, 255, 0.3);
+transition: all 0.3s ease;
+animation: fadeInUp 1s ease 0.6s both;
+}
 
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
+.cta-button:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
 
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-        }
+/* Sections */
+.section {
+padding: 5rem 0;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.section-title {
+text-align: center;
+font-size: 2.5rem;
+margin-bottom: 3rem;
+background: var(--gradient);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
 
-        /* Company Info Cards */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+/* Company Info Cards */
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin-top: 3rem;
+}
 
-        .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
+.info-card {
+background: white;
+padding: 2rem;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+border: 1px solid rgba(59, 130, 246, 0.1);
+}
 
-        .info-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
+.info-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
 
-        .info-card i {
-            font-size: 2.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
+.info-card i {
+font-size: 2.5rem;
+background: var(--gradient);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 1rem;
+}
 
-        .info-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
+.info-card h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: var(--primary-color);
+}
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+/* Timeline */
+.timeline {
+position: relative;
+max-width: 800px;
+margin: 0 auto;
+}
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--gradient);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
+.timeline::after {
+content: '';
+position: absolute;
+width: 4px;
+background: var(--gradient);
+top: 0;
+bottom: 0;
+left: 50%;
+margin-left: -2px;
+}
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
+.timeline-item {
+padding: 10px 40px;
+position: relative;
+background-color: inherit;
+width: 50%;
+}
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background: var(--secondary-color);
-            border: 4px solid white;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
+.timeline-item::after {
+content: '';
+position: absolute;
+width: 20px;
+height: 20px;
+right: -10px;
+background: var(--secondary-color);
+border: 4px solid white;
+top: 15px;
+border-radius: 50%;
+z-index: 1;
+}
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
+.timeline-item:nth-child(even) {
+left: 50%;
+}
 
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
+.timeline-item:nth-child(even)::after {
+left: -10px;
+}
 
-        .timeline-content {
-            padding: 20px 30px;
-            background: white;
-            position: relative;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+.timeline-content {
+padding: 20px 30px;
+background: white;
+position: relative;
+border-radius: 15px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
 
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+/* Products Grid */
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+margin-top: 3rem;
+}
 
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+.product-card {
+background: white;
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
+.product-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
 
-        .product-header {
-            background: var(--gradient);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
+.product-header {
+background: var(--gradient);
+color: white;
+padding: 2rem;
+text-align: center;
+}
 
-        .product-header i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+.product-header i {
+font-size: 3rem;
+margin-bottom: 1rem;
+}
 
-        .product-body {
-            padding: 2rem;
-        }
+.product-body {
+padding: 2rem;
+}
 
-        /* Training Section */
-        .training-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
+/* Training Section */
+.training-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin-top: 3rem;
+}
 
-        .training-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--secondary-color);
-        }
+.training-card {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+text-align: center;
+transition: all 0.3s ease;
+border-left: 4px solid var(--secondary-color);
+}
 
-        .training-card:hover {
-            transform: translateY(-5px);
-            border-left-color: var(--accent-color);
-        }
+.training-card:hover {
+transform: translateY(-5px);
+border-left-color: var(--accent-color);
+}
 
-        /* Footer */
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
+/* Footer */
+.footer {
+background: var(--dark-color);
+color: white;
+padding: 3rem 0 1rem;
+text-align: center;
+}
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+margin-bottom: 2rem;
+}
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
+.footer-section h3 {
+margin-bottom: 1rem;
+color: var(--accent-color);
+}
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            margin-top: 2rem;
-        }
+.footer-bottom {
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+padding-top: 1rem;
+margin-top: 2rem;
+}
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Animations */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.6s ease;
+}
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
+/* Responsive Design */
+@media (max-width: 768px) {
+.nav-menu {
+display: none;
+}
 
-            .mobile-menu {
-                display: flex;
-            }
+.mobile-menu {
+display: flex;
+}
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+.hero h1 {
+font-size: 2.5rem;
+}
 
-            .hero p {
-                font-size: 1.1rem;
-            }
+.hero p {
+font-size: 1.1rem;
+}
 
-            .timeline::after {
-                left: 31px;
-            }
+.timeline::after {
+left: 31px;
+}
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
+.timeline-item {
+width: 100%;
+padding-left: 70px;
+padding-right: 25px;
+}
 
-            .timeline-item::after {
-                left: 21px;
-            }
+.timeline-item::after {
+left: 21px;
+}
 
-            .section-title {
-                font-size: 2rem;
-            }
-        }
+.section-title {
+font-size: 2rem;
+}
+}
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+/* Smooth scrolling */
+html {
+scroll-behavior: smooth;
+}
 
-        /* Loading animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
+/* Loading animation */
+.loading {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: var(--gradient);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+transition: opacity 0.5s ease;
+}
 
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+.loading.hidden {
+opacity: 0;
+pointer-events: none;
+}
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
+.spinner {
+width: 50px;
+height: 50px;
+border: 3px solid rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+border-top-color: white;
+animation: spin 1s ease-in-out infinite;
+}
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-		.audio-btn {
-    display: inline-block;
-    margin: 0.5rem 0 1.5rem 0;
-    padding: 0.5rem 1rem;
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1.0rem;
-    transition: background 0.3s ease;
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
+.audio-btn {
+display: inline-block;
+margin: 0.5rem 0 1.5rem 0;
+padding: 0.5rem 1rem;
+background: var(--secondary-color);
+color: white;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+font-size: 1.0rem;
+transition: background 0.3s ease;
 }
 
 .audio-btn:hover {
-    background: var(--accent-color);
+background: var(--accent-color);
 }
 /* Mobile Menü sichtbar machen */
 .nav-menu.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    gap: 1.2rem;
+display: flex;
+flex-direction: column;
+position: absolute;
+top: 70px;
+right: 20px;
+background: white;
+padding: 1.5rem;
+border-radius: 10px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+gap: 1.2rem;
 }
 
 /* Hamburger Animation */
 .mobile-menu.open span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
+transform: rotate(45deg) translateY(8px);
 }
 .mobile-menu.open span:nth-child(2) {
-    opacity: 0;
+opacity: 0;
 }
 .mobile-menu.open span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
+transform: rotate(-45deg) translateY(-8px);
 }
 
 /* Navbar beim Scrollen kleiner machen */
 .navbar.scrolled {
-    padding: 0.5rem 0;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+padding: 0.5rem 0;
+box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 /* Kontaktbereich */
 .contact-card {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    transition: all 0.3s ease;
+background: white;
+border-radius: 20px;
+padding: 3rem;
+text-align: center;
+max-width: 700px;
+margin: 0 auto;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(59, 130, 246, 0.1);
+transition: all 0.3s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+transform: translateY(-8px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .contact-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+font-size: 1.2rem;
+margin-bottom: 1.5rem;
+color: var(--text-color);
 }
 
 .contact-info i {
-    font-size: 1.8rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+font-size: 1.8rem;
+background: var(--gradient);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 .contact-info a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+color: var(--secondary-color);
+text-decoration: none;
+transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: var(--accent-color);
+color: var(--accent-color);
 }
 
 .contact-button {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    background: var(--gradient);
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-    transition: all 0.3s ease;
+display: inline-block;
+margin-top: 2rem;
+padding: 1rem 2rem;
+border-radius: 50px;
+background: var(--gradient);
+color: white;
+text-decoration: none;
+font-weight: 500;
+box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+transition: all 0.3s ease;
 }
 
 .contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+transform: translateY(-3px);
+box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
 }
 /* Google Maps Karte */
 .map-container {
-    margin-top: 2.5rem;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.1);
+margin-top: 2.5rem;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 350px;
-    border: none;
-    display: block;
+width: 100%;
+height: 350px;
+border: none;
+display: block;
 }
-.cta-button:hover, .contact-button:hover {
-  box-shadow: 0 0 20px rgba(6,182,212,0.4);
+@media (max-width: 480px) {
+.contact-card {
+padding: 2rem 1.2rem;
+}
+
+.contact-info {
+flex-direction: column;
+text-align: center;
+gap: 0.5rem;
+}
+
+.contact-info i {
+margin-bottom: 0.3rem;
+}
+
+.contact-button {
+width: 100%;
+padding: 1rem;
+font-size: 1rem;
+}
+
+.map-container iframe {
+height: 280px;
+}
 }
 
 </style>
 </head>
 <body>
-    <script>
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("loading");
-        loader.classList.add("hidden");
+<script>
+window.addEventListener("load", function () {
+const loader = document.getElementById("loading");
+loader.classList.add("hidden");
 
-        const elements = document.querySelectorAll('.fade-in');
-        elements.forEach(el => {
-            el.classList.add('visible');
-        });
-    });
+const elements = document.querySelectorAll('.fade-in');
+elements.forEach(el => {
+el.classList.add('visible');
+});
+});
 </script>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">M+S Silicon GmbH & Co KG.</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">Über uns</a></li>
-                <li><a href="#history" class="nav-link">Geschichte</a></li>
-                <li><a href="#training" class="nav-link">Ausbildung</a></li>
-                <li><a href="#products" class="nav-link">Produkte</a></li>
-				<li><a href="#contact" class="nav-link">Kontakt</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>M+S Silicon GmbH & Co KG</h1>
-            <p>Innovative Silikontechnologie seit 2001 - Ihr Partner für maßgeschneiderte Silikonlösungen</p>
-            <a href="#about" class="cta-button">Mehr erfahren</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-			<h2 class="section-title fade-in">Über unser Unternehmen</h2>
-			<center><button class="audio-btn" data-audio="einleitung">🔊 Abspielen</button></center>
-            <div class="info-grid">
-                <div class="info-card fade-in">
-                    <i class="fas fa-building"></i>
-                    <h3>Rechtsform</h3>
-                    <p>Gesellschaft mit beschränkter Haftung & Compagnie Kommanditgesellschaft (GmbH & Co. KG) - eine bewährte Unternehmensform, die Haftungsbeschränkung mit flexibler Struktur verbindet.</p>
-                </div>
-                <div class="info-card fade-in">
-                    <i class="fas fa-users"></i>
-                    <h3>160 Mitarbeiter</h3>
-                    <p>Unser erfahrenes Team aus 160 Fachkräften arbeitet täglich daran, innovative Silikonlösungen zu entwickeln und höchste Qualitätsstandards zu erfüllen.</p>
-                </div>
-                <div class="info-card fade-in">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>12 Auszubildende</h3>
-                    <p>Wir investieren in die Zukunft und bilden derzeit 12 junge Menschen in verschiedenen Berufsfeldern aus - von der Produktion bis zur Verwaltung.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- History Section -->
-    <section id="history" class="section" style="background: var(--light-color);">
-        <div class="container">
-			<h2 class="section-title fade-in">Unsere Geschichte</h2>
-			<center><button class="audio-btn" data-audio="geschichte">🔊 Abspielen</button></center>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3>2001 - Gründung</h3>
-                        <p>Gründung der M+S Silicon GmbH & Co. KG in Dortmund als Grundstein der heutigen M+S Gruppe.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3>2001-2010 - Rasantes Wachstum</h3>
-                        <p>Erweiterung der Produktionsfläche, Anschaffung neuer Maschinen und Übernahme der Unternehmen Kayser und Damerius.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3>2015 - Große Expansion</h3>
-                        <p>Erweiterung des Werks auf über 10.000 Quadratmeter mit modernen Extrusionsanlagen und Kalandern.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3>2018 - Personalwachstum</h3>
-                        <p>Erreichen von rund 250 Beschäftigten durch kontinuierliches Wachstum und Expansion.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3>2022 - Nachhaltigkeit</h3>
-                        <p>Umstellung auf chlorfreie Produktion und Reduzierung der Umweltbelastung auf Null. Auszeichnung als Finalist beim Dortmunder Wirtschaftspreis.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Section -->
-    <section id="training" class="section" style="background: var(--light-color);">
-        <div class="container">
-            <h2 class="section-title fade-in">Ausbildungsberufe</h2>
-			<center><button class="audio-btn" data-audio="ausbildungsberufe">🔊 Abspielen</button></center>
-            <p class="fade-in" style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Starten Sie Ihre Karriere bei M+S Silicon - Wir bieten vielfältige Ausbildungsmöglichkeiten in zukunftsorientierten Berufen.</p>
-            <div class="training-grid">
-                <div class="training-card fade-in">
-                    <i class="fas fa-cogs" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                    <h3>Anlagen- und Maschinenführer</h3>
-                    <p>Bedienung von Maschinen zur Kunststoffverarbeitung und Überwachung der Produktionsprozesse.</p>
-                </div>
-                <div class="training-card fade-in">
-                    <i class="fas fa-atom" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                    <h3>Chemikant/-in</h3>
-                    <p>Arbeit mit chemischen Stoffen, kundengerechte Zusammensetzung und Überwachung von Produktionsprozessen.</p>
-                </div>
-                <div class="training-card fade-in">
-                    <i class="fas fa-calculator" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                    <h3>Industriekaufmann/-frau</h3>
-                    <p>Kaufmännische Tätigkeiten in verschiedenen Unternehmensbereichen von der Beschaffung bis zum Vertrieb.</p>
-                </div>
-                <div class="training-card fade-in">
-                    <i class="fas fa-bolt" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                    <h3>Betriebselektriker</h3>
-                    <p>Reparatur und Wartung der technischen Maschinen und elektrischen Anlagen in der Produktion.</p>
-                </div>
-                <div class="training-card fade-in">
-                    <i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                    <h3>Informatiker</h3>
-                    <p>Entwicklung und Wartung von IT-Systemen sowie Digitalisierung von Unternehmensprozessen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Produkte & Dienstleistungen</h2>
-			<center><button class="audio-btn" data-audio="produkte">🔊 Abspielen</button></center>
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Silikondichtungen</h3>
-                    </div>
-                    <div class="product-body">
-                        <p>Hochwertige Dichtungslösungen für Maschinen und Fahrzeuge. Diese werden benutzt, um Lücken abzudichten, zum Beispiel in Maschinen oder Autos, damit kein Wasser oder Luft durchkommt.</p>
-                        <ul style="margin-top: 1rem; padding-left: 1rem;">
-                            <li>Temperaturbeständig</li>
-                            <li>Langlebig und flexibel</li>
-                            <li>Verschiedene Härtegrade</li>
-                        </ul>
-                    </div>
-                </div>
-<div class="product-card fade-in">
-    <div class="product-header">
-        <i class="fas fa-cube"></i>
-        <h3>Silikonformteile</h3>
-    </div>
-    <div class="product-body">
-        <!-- Bild hinzufügen -->
-        <p>Genau geformte Silikonstücke, die in technischen Geräten eingebaut werden. Zum Beispiel können das Dichtungen, Dämpfer oder Schutzteile sein.</p>
-        <ul style="margin-top: 1rem; padding-left: 1rem;">
-            <li>Komplexe Geometrien möglich</li>
-            <li>Hohe Präzision</li>
-            <li>Kundenspezifische Entwicklung</li>
-        </ul>
-    </div>
+<!-- Loading Screen -->
+<div class="loading" id="loading">
+<div class="spinner"></div>
 </div>
 
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <i class="fas fa-tint"></i>
-                        <h3>Flüssigsilikone (LSR)</h3>
-                    </div>
-                    <div class="product-body">
-                        <p>Eine spezielle flüssige Form von Silikon, die in Spritzgussmaschinen verarbeitet wird, um sehr präzise und komplexe Teile herzustellen. Diese Methode wird oft für kleine und komplizierte Teile verwendet.</p>
-                        <ul style="margin-top: 1rem; padding-left: 1rem;">
-                            <li>Spritzgusstechnologie</li>
-                            <li>Sehr präzise Abformung</li>
-                            <li>Medizintechnik-geeignet</li>
-                        </ul>
-                    </div>
-                </div>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">M+S Silicon GmbH & Co KG.</div>
+<ul class="nav-menu">
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#about" class="nav-link">Über uns</a></li>
+<li><a href="#history" class="nav-link">Geschichte</a></li>
+<li><a href="#training" class="nav-link">Ausbildung</a></li>
+<li><a href="#products" class="nav-link">Produkte</a></li>
+<li><a href="#contact" class="nav-link">Kontakt</a></li>
+</ul>
+<div class="mobile-menu">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+<div class="hero-content">
+<h1>M+S Silicon GmbH & Co KG</h1>
+<p>Innovative Silikontechnologie seit 2001 - Ihr Partner für maßgeschneiderte Silikonlösungen</p>
+<a href="#about" class="cta-button">Mehr erfahren</a>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+<div class="container">
+<h2 class="section-title fade-in">Über unser Unternehmen</h2>
+<center><button class="audio-btn" data-audio="einleitung">🔊 Abspielen</button></center>
+<div class="info-grid">
+<div class="info-card fade-in">
+<i class="fas fa-building"></i>
+<h3>Rechtsform</h3>
+<p>Gesellschaft mit beschränkter Haftung & Compagnie Kommanditgesellschaft (GmbH & Co. KG) - eine bewährte Unternehmensform, die Haftungsbeschränkung mit flexibler Struktur verbindet.</p>
+</div>
+<div class="info-card fade-in">
+<i class="fas fa-users"></i>
+<h3>160 Mitarbeiter</h3>
+<p>Unser erfahrenes Team aus 160 Fachkräften arbeitet täglich daran, innovative Silikonlösungen zu entwickeln und höchste Qualitätsstandards zu erfüllen.</p>
+</div>
+<div class="info-card fade-in">
+<i class="fas fa-graduation-cap"></i>
+<h3>12 Auszubildende</h3>
+<p>Wir investieren in die Zukunft und bilden derzeit 12 junge Menschen in verschiedenen Berufsfeldern aus - von der Produktion bis zur Verwaltung.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="section" style="background: var(--light-color);">
+<div class="container">
+<h2 class="section-title fade-in">Unsere Geschichte</h2>
+<center><button class="audio-btn" data-audio="geschichte">🔊 Abspielen</button></center>
+<div class="timeline">
+<div class="timeline-item fade-in">
+<div class="timeline-content">
+<h3>2001 - Gründung</h3>
+<p>Gründung der M+S Silicon GmbH & Co. KG in Dortmund als Grundstein der heutigen M+S Gruppe.</p>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-content">
+<h3>2001-2010 - Rasantes Wachstum</h3>
+<p>Erweiterung der Produktionsfläche, Anschaffung neuer Maschinen und Übernahme der Unternehmen Kayser und Damerius.</p>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-content">
+<h3>2015 - Große Expansion</h3>
+<p>Erweiterung des Werks auf über 10.000 Quadratmeter mit modernen Extrusionsanlagen und Kalandern.</p>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-content">
+<h3>2018 - Personalwachstum</h3>
+<p>Erreichen von rund 250 Beschäftigten durch kontinuierliches Wachstum und Expansion.</p>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-content">
+<h3>2022 - Nachhaltigkeit</h3>
+<p>Umstellung auf chlorfreie Produktion und Reduzierung der Umweltbelastung auf Null. Auszeichnung als Finalist beim Dortmunder Wirtschaftspreis.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Training Section -->
+<section id="training" class="section" style="background: var(--light-color);">
+<div class="container">
+<h2 class="section-title fade-in">Ausbildungsberufe</h2>
+<center><button class="audio-btn" data-audio="ausbildungsberufe">🔊 Abspielen</button></center>
+<p class="fade-in" style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Starten Sie Ihre Karriere bei M+S Silicon - Wir bieten vielfältige Ausbildungsmöglichkeiten in zukunftsorientierten Berufen.</p>
+<div class="training-grid">
+<div class="training-card fade-in">
+<i class="fas fa-cogs" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+<h3>Anlagen- und Maschinenführer</h3>
+<p>Bedienung von Maschinen zur Kunststoffverarbeitung und Überwachung der Produktionsprozesse.</p>
+</div>
+<div class="training-card fade-in">
+<i class="fas fa-atom" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+<h3>Chemikant/-in</h3>
+<p>Arbeit mit chemischen Stoffen, kundengerechte Zusammensetzung und Überwachung von Produktionsprozessen.</p>
+</div>
+<div class="training-card fade-in">
+<i class="fas fa-calculator" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+<h3>Industriekaufmann/-frau</h3>
+<p>Kaufmännische Tätigkeiten in verschiedenen Unternehmensbereichen von der Beschaffung bis zum Vertrieb.</p>
+</div>
+<div class="training-card fade-in">
+<i class="fas fa-bolt" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+<h3>Betriebselektriker</h3>
+<p>Reparatur und Wartung der technischen Maschinen und elektrischen Anlagen in der Produktion.</p>
+</div>
+<div class="training-card fade-in">
+<i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+<h3>Informatiker</h3>
+<p>Entwicklung und Wartung von IT-Systemen sowie Digitalisierung von Unternehmensprozessen.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="section">
+<div class="container">
+<h2 class="section-title fade-in">Produkte & Dienstleistungen</h2>
+<center><button class="audio-btn" data-audio="produkte">🔊 Abspielen</button></center>
+<div class="products-grid">
 <div class="product-card fade-in">
-    <div class="product-header">
-        <i class="fas fa-plug"></i>
-        <h3>Kabelschutz-Systeme</h3>
-    </div>
-    <div class="product-body">
-        <!-- Bild hinzufügen -->
-        <p>Kabelschutz-Systeme dienen dazu, elektrische Leitungen vor mechanischen Beschädigungen, Feuchtigkeit, Chemikalien oder Hitze zu schützen – z. B. in Industrieanlagen oder Fahrzeugen.</p>
-        <ul style="margin-top: 1rem; padding-left: 1rem;">
-            <li>Schutz vor Umwelteinflüssen</li>
-            <li>Mechanische Stabilität</li>
-            <li>Industrielle Anwendungen</li>
-        </ul>
-    </div>
+<div class="product-header">
+<i class="fas fa-shield-alt"></i>
+<h3>Silikondichtungen</h3>
+</div>
+<div class="product-body">
+<p>Hochwertige Dichtungslösungen für Maschinen und Fahrzeuge. Diese werden benutzt, um Lücken abzudichten, zum Beispiel in Maschinen oder Autos, damit kein Wasser oder Luft durchkommt.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Temperaturbeständig</li>
+<li>Langlebig und flexibel</li>
+<li>Verschiedene Härtegrade</li>
+</ul>
+</div>
+</div>
+<div class="product-card fade-in">
+<div class="product-header">
+<i class="fas fa-cube"></i>
+<h3>Silikonformteile</h3>
+</div>
+<div class="product-body">
+<!-- Bild hinzufügen -->
+<p>Genau geformte Silikonstücke, die in technischen Geräten eingebaut werden. Zum Beispiel können das Dichtungen, Dämpfer oder Schutzteile sein.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Komplexe Geometrien möglich</li>
+<li>Hohe Präzision</li>
+<li>Kundenspezifische Entwicklung</li>
+</ul>
+</div>
 </div>
 
 <div class="product-card fade-in">
-    <div class="product-header">
-        <i class="fas fa-stream"></i>
-        <h3>Silikon-Extrudate</h3>
-    </div>
-    <div class="product-body">
-        <!-- Bild hinzufügen -->
-        <p>Silikon-Extrudate werden verwendet, um flexible, hitze- und witterungsbeständige Dichtungen, Schläuche oder Profile herzustellen – z. B. für Maschinen, Medizin oder die Bauindustrie.</p>
-        <ul style="margin-top: 1rem; padding-left: 1rem;">
-            <li>Hitze- und witterungsbeständig</li>
-            <li>Flexible Profile und Schläuche</li>
-            <li>Vielseitige Anwendungen</li>
-        </ul>
-    </div>
+<div class="product-header">
+<i class="fas fa-tint"></i>
+<h3>Flüssigsilikone (LSR)</h3>
 </div>
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>Entwicklung & Veredlung</h3>
-                    </div>
-                    <div class="product-body">
-                        <p>Umfassende Dienstleistungen von der Entwicklung bis zur Oberflächenveredelung. Wir begleiten Sie von der Idee bis zum fertigen Produkt.</p>
-                        <ul style="margin-top: 1rem; padding-left: 1rem;">
-                            <li>Kundenspezifische Entwicklung</li>
-                            <li>Oberflächenveredelung</li>
-                            <li>Qualitätskontrolle</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-	<section id="contact" class="section" style="background: var(--light-color);">
-		<div class="container">
-		<h2 class="section-title fade-in">Kontakt</h2>
+<div class="product-body">
+<p>Eine spezielle flüssige Form von Silikon, die in Spritzgussmaschinen verarbeitet wird, um sehr präzise und komplexe Teile herzustellen. Diese Methode wird oft für kleine und komplizierte Teile verwendet.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Spritzgusstechnologie</li>
+<li>Sehr präzise Abformung</li>
+<li>Medizintechnik-geeignet</li>
+</ul>
+</div>
+</div>
+<div class="product-card fade-in">
+<div class="product-header">
+<i class="fas fa-plug"></i>
+<h3>Kabelschutz-Systeme</h3>
+</div>
+<div class="product-body">
+<!-- Bild hinzufügen -->
+<p>Kabelschutz-Systeme dienen dazu, elektrische Leitungen vor mechanischen Beschädigungen, Feuchtigkeit, Chemikalien oder Hitze zu schützen – z. B. in Industrieanlagen oder Fahrzeugen.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Schutz vor Umwelteinflüssen</li>
+<li>Mechanische Stabilität</li>
+<li>Industrielle Anwendungen</li>
+</ul>
+</div>
+</div>
 
-		<div class="contact-card fade-in">
-		<div class="contact-info">
-        <i class="fas fa-envelope"></i>
-        <p><strong>E-Mail:</strong> 
-          <a href="mailto:michaellapsker@ms-silicon.de">michaellapsker@ms-silicon.de</a>
-        </p>
-			</div>
-			<div class="contact-info">
-			<i class="fas fa-phone"></i>
-			<p><strong>Telefon:</strong> 
-			<a href="tel:023196789065">0231 967890-65</a>
-        </p>
-      </div>
-      <div class="contact-info">
-        <i class="fas fa-handshake"></i>
-        <p>Wir freuen uns auf deine Bewerbung und dein Interesse an M+S Silicon!</p>
-      </div>
+<div class="product-card fade-in">
+<div class="product-header">
+<i class="fas fa-stream"></i>
+<h3>Silikon-Extrudate</h3>
+</div>
+<div class="product-body">
+<!-- Bild hinzufügen -->
+<p>Silikon-Extrudate werden verwendet, um flexible, hitze- und witterungsbeständige Dichtungen, Schläuche oder Profile herzustellen – z. B. für Maschinen, Medizin oder die Bauindustrie.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Hitze- und witterungsbeständig</li>
+<li>Flexible Profile und Schläuche</li>
+<li>Vielseitige Anwendungen</li>
+</ul>
+</div>
+</div>
+<div class="product-card fade-in">
+<div class="product-header">
+<i class="fas fa-tools"></i>
+<h3>Entwicklung & Veredlung</h3>
+</div>
+<div class="product-body">
+<p>Umfassende Dienstleistungen von der Entwicklung bis zur Oberflächenveredelung. Wir begleiten Sie von der Idee bis zum fertigen Produkt.</p>
+<ul style="margin-top: 1rem; padding-left: 1rem;">
+<li>Kundenspezifische Entwicklung</li>
+<li>Oberflächenveredelung</li>
+<li>Qualitätskontrolle</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<section id="contact" class="section" style="background: var(--light-color);">
+<div class="container">
+<h2 class="section-title fade-in">Kontakt</h2>
 
-      <a href="mailto:michaellapsker@ms-silicon.de" class="contact-button">
-        <i class="fas fa-paper-plane"></i> Jetzt Kontakt aufnehmen
-      </a>
+<div class="contact-card fade-in">
+<div class="contact-info">
+<i class="fas fa-envelope"></i>
+<p><strong>E-Mail:</strong> 
+<a href="mailto:michaellapsker@ms-silicon.de">michaellapsker@ms-silicon.de</a>
+</p>
+</div>
+<div class="contact-info">
+<i class="fas fa-phone"></i>
+<p><strong>Telefon:</strong> 
+<a href="tel:023196789065">0231 967890-65</a>
+</p>
+</div>
+<div class="contact-info">
+<i class="fas fa-handshake"></i>
+<p>Wir freuen uns auf deine Bewerbung und dein Interesse an M+S Silicon!</p>
+</div>
 
-      <!-- 🌍 Google Maps Karte -->
-      <div class="map-container fade-in">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.164071061997!2d7.467777615744379!3d51.493588879631915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b91fc8c9cb17bb%3A0x7a18b6e2b1e254f7!2sM%2BS%20Silicon%20GmbH%20%26%20Co.%20KG!5e0!3m2!1sde!2sde!4v1696352487087!5m2!1sde!2sde" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </div>
+<a href="mailto:michaellapsker@ms-silicon.de" class="contact-button">
+<i class="fas fa-paper-plane"></i> Jetzt Kontakt aufnehmen
+</a>
+
+<!-- 🌍 Google Maps Karte -->
+<div class="map-container fade-in">
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.854520315227!2d7.504025476787499!3d51.49890747179537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b91f6782920931%3A0x2dfd34c64290d056!2sHann%C3%B6versche%20Str.%2028%2C%2044143%20Dortmund!5e0!3m2!1sde!2sde!4v1728217789864!5m2!1sde!2sde"
+width="100%"
+height="350"
+style="border:0;"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+</div>
 </section>
 
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>M+S Silicon GmbH & Co KG</h3>
-                    <p>Ihr zuverlässiger Partner für innovative Silikontechnologie und maßgeschneiderte Lösungen seit 2001.</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-            </div>
-        </div>
-    </footer>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>M+S Silicon GmbH & Co KG</h3>
+<p>Ihr zuverlässiger Partner für innovative Silikontechnologie und maßgeschneiderte Lösungen seit 2001.</p>
+</div>
+</div>
+<div class="footer-bottom">
+</div>
+</div>
+</footer>
+<script>
+// === MOBILE NAVIGATION ===
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Öffnen / Schließen bei Klick auf Hamburger
+  mobileMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+  });
+
+  // Menü schließen, wenn ein Link angeklickt wurde
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      mobileMenu.classList.remove("open");
+    });
+  });
+});
+</script>
 <script>
 document.querySelectorAll('.audio-btn').forEach(btn => {
-    let currentAudio = null;
-    
-    btn.addEventListener('click', () => {
-        const audioName = btn.getAttribute('data-audio');
-        const icon = btn.querySelector('i');
-        
-        // Wenn bereits Audio läuft, stoppe es
-        if (currentAudio && !currentAudio.paused) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            icon.className = 'fas fa-play';
-            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
-            currentAudio = null;
-            return;
-        }
-        
-        // Neues Audio starten
-        currentAudio = new Audio(`${audioName}.mp3`);
-        
-        currentAudio.play().then(() => {
-            icon.className = 'fas fa-pause';
-            btn.innerHTML = '<i class="fas fa-pause"></i> Audio pausieren';
-        }).catch(err => {
-            console.log('Audio konnte nicht abgespielt werden:', err);
-        });
-        
-        // Wenn Audio zu Ende ist
-        currentAudio.addEventListener('ended', () => {
-            icon.className = 'fas fa-play';
-            btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
-            currentAudio = null;
-        });
-    });
+let currentAudio = null;
+
+btn.addEventListener('click', () => {
+const audioName = btn.getAttribute('data-audio');
+const icon = btn.querySelector('i');
+
+// Wenn bereits Audio läuft, stoppe es
+if (currentAudio && !currentAudio.paused) {
+currentAudio.pause();
+currentAudio.currentTime = 0;
+icon.className = 'fas fa-play';
+btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
+currentAudio = null;
+return;
+}
+
+// Neues Audio starten
+currentAudio = new Audio(`${audioName}.mp3`);
+
+currentAudio.play().then(() => {
+icon.className = 'fas fa-pause';
+btn.innerHTML = '<i class="fas fa-pause"></i> Audio pausieren';
+}).catch(err => {
+console.log('Audio konnte nicht abgespielt werden:', err);
+});
+
+// Wenn Audio zu Ende ist
+currentAudio.addEventListener('ended', () => {
+icon.className = 'fas fa-play';
+btn.innerHTML = '<i class="fas fa-play"></i> Audio abspielen';
+currentAudio = null;
+});
+});
 });
 <script>
 // === MOBILE OPTIMIERUNGSSKRIPT ===
 document.addEventListener("DOMContentLoaded", () => {
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const navMenu = document.querySelector(".nav-menu");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const navbar = document.querySelector(".navbar");
-
-    // Mobile-Menü ein-/ausblenden
-    mobileMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        mobileMenu.classList.toggle("open");
-    });
-
-    // Menü schließen nach Klick auf Link
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            mobileMenu.classList.remove("open");
-        });
-    });
-
-    // Navbar verkleinern beim Scrollen
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 80) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
-});
-<script>
-const sections = document.querySelectorAll("section");
+const mobileMenu = document.querySelector(".mobile-menu");
+const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-link");
+const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) current = section.getAttribute("id");
-  });
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
+// Mobile-Menü ein-/ausblenden
+mobileMenu.addEventListener("click", () => {
+navMenu.classList.toggle("active");
+mobileMenu.classList.toggle("open");
 });
-</script>
-<style>
-.nav-link.active {
-  color: var(--secondary-color);
-  font-weight: 600;
-}
-</style>
 
+// Menü schließen nach Klick auf Link
+navLinks.forEach(link => {
+link.addEventListener("click", () => {
+navMenu.classList.remove("active");
+mobileMenu.classList.remove("open");
+});
+});
+
+// Navbar verkleinern beim Scrollen
+window.addEventListener("scroll", () => {
+if (window.scrollY > 80) {
+navbar.classList.add("scrolled");
+} else {
+navbar.classList.remove("scrolled");
+}
+});
+});
 </script>
 </script>
 </body>
