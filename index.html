@@ -974,5 +974,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let currentAudio = null;
+
+  document.querySelectorAll('.audio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const audioName = btn.getAttribute('data-audio');
+      const audioFile = `${audioName}.mp3`; // Falls deine Dateien im Unterordner liegen: `audio/${audioName}.mp3`
+
+      // Wenn gerade ein anderes Audio läuft → stoppen
+      if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+        btn.textContent = "🔊 Abspielen";
+        return;
+      }
+
+      // Neues Audio starten
+      currentAudio = new Audio(audioFile);
+      currentAudio.play().then(() => {
+        btn.textContent = "⏸️ Pausieren";
+      }).catch(err => {
+        console.error("Fehler beim Abspielen:", err);
+        alert("Audio konnte nicht abgespielt werden. Datei fehlt?");
+      });
+
+      // Wenn Audio zu Ende → Button zurücksetzen
+      currentAudio.addEventListener("ended", () => {
+        btn.textContent = "🔊 Abspielen";
+        currentAudio = null;
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
+
