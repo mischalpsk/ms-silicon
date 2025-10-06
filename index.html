@@ -917,6 +917,28 @@
         </div>
     </footer>
 <script>
+// === MOBILE NAVIGATION ===
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Öffnen / Schließen bei Klick auf Hamburger
+  mobileMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+  });
+
+  // Menü schließen, wenn ein Link angeklickt wurde
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      mobileMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+<script>
 document.querySelectorAll('.audio-btn').forEach(btn => {
     let currentAudio = null;
     
