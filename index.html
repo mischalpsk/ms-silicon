@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M+S Silicon GmbH & Co KG - Innovative Silikontechnologie</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -587,33 +587,61 @@
     border: none;
     display: block;
 }
-.cta-button:hover, .contact-button:hover {
-  box-shadow: 0 0 20px rgba(6,182,212,0.4);
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--dark-color); /* sorgt für nahtlosen Übergang */
-  overflow-x: hidden;
-}
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 2rem 1.2rem;
+  }
 
-footer, .footer {
-  margin: 0;
-  padding-bottom: 0;
-  background: var(--dark-color);
-}
+  .contact-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
 
-/* Entfernt Lücken unter dem Footer */
-body > *:last-child {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
+  .contact-info i {
+    margin-bottom: 0.3rem;
+  }
 
-/* Verhindert Rendering-Lücken durch Schatten oder Rundungen */
-html {
-  height: 100%;
-  overflow-y: auto;
-  background-color: var(--dark-color);
+  .contact-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .map-container iframe {
+    height: 280px;
+  }
+}
+/* Timeline Mobiloptimierung */
+@media (max-width: 768px) {
+  .timeline {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .timeline::after {
+    left: 25px; /* Linie leicht nach links */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0; /* keine Versetzung mehr */
+  }
+
+  .timeline-item::after {
+    left: 16px; /* Punkt auf der Linie */
+  }
+
+  .timeline-content {
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+  }
 }
 
 </style>
@@ -905,6 +933,7 @@ html {
 </section>
 
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -918,6 +947,28 @@ html {
             </div>
         </div>
     </footer>
+<script>
+// === MOBILE NAVIGATION ===
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Öffnen / Schließen bei Klick auf Hamburger
+  mobileMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+  });
+
+  // Menü schließen, wenn ein Link angeklickt wurde
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      mobileMenu.classList.remove("open");
+    });
+  });
+});
+</script>
 <script>
 document.querySelectorAll('.audio-btn').forEach(btn => {
     let currentAudio = null;
@@ -985,52 +1036,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-<script>
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) current = section.getAttribute("id");
-  });
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
-<style>
-.nav-link.active {
-  color: var(--secondary-color);
-  font-weight: 600;
-}
-</style>
-<script>
-// === MOBILE NAVIGATION ===
-document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const navMenu = document.querySelector(".nav-menu");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  // Öffnen / Schließen bei Klick auf Hamburger
-  mobileMenu.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    mobileMenu.classList.toggle("open");
-  });
-
-  // Menü schließen, wenn ein Link angeklickt wurde
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      mobileMenu.classList.remove("open");
-    });
-  });
-});
-</script>
 </script>
 </script>
 </body>
