@@ -814,6 +814,98 @@ box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 .quiz-btn:hover {
   transform: scale(1.05);
 }
+.simulator-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem auto;
+  transition: all 0.3s ease;
+}
+
+#machine {
+  font-size: 4rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.sim-btn {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+.sim-btn:hover {
+  transform: scale(1.05);
+}
+
+#counter, #status {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+#heatbar-container {
+  width: 100%;
+  height: 15px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+#heatbar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  transition: width 0.3s ease;
+}
+.seal-builder {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.seal-step {
+  margin-bottom: 1.2rem;
+}
+
+.seal-step h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.seal-step select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 2px solid rgba(59,130,246,0.2);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.seal-step select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+#seal-result {
+  background: rgba(59,130,246,0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  min-height: 60px;
+  color: var(--text-color);
+}
 
 </style>
 </head>
@@ -1136,6 +1228,86 @@ box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   </div>
 </section>
 
+<section id="simulator" class="section" style="background: var(--light-color);">
+  <div class="container">
+    <h2 class="section-title fade-in">Produktions-Simulator</h2>
+    <p class="fade-in" style="text-align:center; font-size:1.1rem;">
+      Starte die Maschine und produziere so viele Silikonteile wie möglich!<br>
+      Aber Achtung – überhitze sie nicht!
+    </p>
+
+    <div class="simulator-card fade-in">
+      <div id="machine">
+        <i class="fas fa-cogs"></i>
+      </div>
+      <p id="status">Maschine bereit ✅</p>
+      <button id="produce-btn" class="sim-btn">Produzieren</button>
+      <p id="counter">Teile produziert: 0</p>
+      <div id="heatbar-container">
+        <div id="heatbar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="build-seal" class="section" style="background: var(--light-color);">
+  <div class="container">
+    <h2 class="section-title fade-in">Baue deine Dichtung 🔧</h2>
+    <p class="fade-in" style="text-align:center; font-size:1.1rem;">
+      Wähle deine Lieblingskombination und wir sagen dir, was du gebaut hast!<br>
+    </p>
+
+    <div class="seal-builder fade-in">
+      <div class="seal-step">
+        <h3>1️⃣ Material</h3>
+        <select id="seal-material">
+          <option value="">-- Wähle --</option>
+          <option value="silikon">Silikon</option>
+          <option value="gummi">Gummi</option>
+          <option value="metall">Metall</option>
+          <option value="kaugummi">Kaugummi (nicht empfohlen 😅)</option>
+        </select>
+      </div>
+
+      <div class="seal-step">
+        <h3>2️⃣ Farbe</h3>
+        <select id="seal-color">
+          <option value="">-- Wähle --</option>
+          <option value="rot">Rot</option>
+          <option value="blau">Blau</option>
+          <option value="transparent">Transparent</option>
+          <option value="glitzer">Glitzer-Pink ✨</option>
+        </select>
+      </div>
+
+      <div class="seal-step">
+        <h3>3️⃣ Härtegrad</h3>
+        <select id="seal-hardness">
+          <option value="">-- Wähle --</option>
+          <option value="weich">Weich</option>
+          <option value="mittel">Mittel</option>
+          <option value="hart">Hart</option>
+          <option value="stahlhart">Stahlhart 💪</option>
+        </select>
+      </div>
+
+      <div class="seal-step">
+        <h3>4️⃣ Einsatzort</h3>
+        <select id="seal-use">
+          <option value="">-- Wähle --</option>
+          <option value="maschine">Industriemaschine</option>
+          <option value="auto">Auto</option>
+          <option value="toaster">Toaster</option>
+          <option value="raumstation">Raumstation 🚀</option>
+        </select>
+      </div>
+
+      <button id="seal-build-btn" class="sim-btn" style="margin-top:1.5rem;">Dichtung herstellen!</button>
+      <div id="seal-result" class="fade-in" style="margin-top:2rem; font-size:1.2rem; font-weight:500;"></div>
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Footer -->
@@ -1305,6 +1477,133 @@ document.addEventListener("DOMContentLoaded", () => {
   loadQuestion();
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("produce-btn");
+  const counterEl = document.getElementById("counter");
+  const statusEl = document.getElementById("status");
+  const heatbar = document.getElementById("heatbar");
+  const machine = document.getElementById("machine");
+
+  let count = 0;
+  let heat = 0;
+  let cooling = false;
+  let interval = null;
+
+  btn.addEventListener("click", () => {
+    if (cooling) return;
+
+    count++;
+    heat += 10;
+    if (heat > 100) heat = 100;
+
+    counterEl.textContent = `Teile produziert: ${count}`;
+    heatbar.style.width = heat + "%";
+
+    // Animation
+    machine.style.transform = "scale(1.1)";
+    setTimeout(() => machine.style.transform = "scale(1)", 150);
+
+    if (heat >= 100) {
+      cooling = true;
+      statusEl.textContent = "⚠️ Maschine überhitzt! Abkühlen...";
+      statusEl.style.color = "red";
+      btn.disabled = true;
+      interval = setInterval(coolDown, 200);
+    } else {
+      statusEl.textContent = "Maschine läuft 🏭";
+      statusEl.style.color = "var(--primary-color)";
+    }
+  });
+
+  function coolDown() {
+    heat -= 5;
+    if (heat <= 0) {
+      clearInterval(interval);
+      heat = 0;
+      cooling = false;
+      statusEl.textContent = "Maschine bereit ✅";
+      statusEl.style.color = "var(--primary-color)";
+      btn.disabled = false;
+    }
+    heatbar.style.width = heat + "%";
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("seal-build-btn");
+  const result = document.getElementById("seal-result");
+
+  const combos = [
+    {
+      match: ["silikon", "transparent", "weich", "maschine"],
+      text: "Perfekt! Eine flexible Silikondichtung für Präzisionsmaschinen. Ingenieure würden dich feiern! 🔧"
+    },
+    {
+      match: ["silikon", "blau", "mittel", "auto"],
+      text: "Eine stylische Autodichtung in Blau? Elon Musk ruft an. 🚗"
+    },
+    {
+      match: ["gummi", "rot", "hart", "toaster"],
+      text: "Mutige Wahl! Deine Dichtung könnte einen Toaster in ein Raumschiff verwandeln. 🍞🚀"
+    },
+    {
+      match: ["metall", "glitzer", "stahlhart", "raumstation"],
+      text: "Hightech-Alarm! NASA möchte deine glitzernde Metall-Dichtung für die ISS testen. 🌌"
+    },
+    {
+      match: ["kaugummi", "glitzer", "weich", "maschine"],
+      text: "Oh nein... das riecht süß, klebt überall, und hält nix. Aber hey, sieht hübsch aus! 🍬"
+    },
+    {
+      match: ["silikon", "transparent", "hart", "raumstation"],
+      text: "Silikon + Raumstation = Space-Level-Dichtung! 🧑‍🚀"
+    }
+  ];
+
+  const funnyFallbacks = [
+    "😅 Interessante Mischung! Sieht aus wie moderne Kunst.",
+    "💡 Das ist... neu. Vielleicht funktioniert’s ja in der Theorie?",
+    "🔥 Uff. Das dampft ein bisschen. Vielleicht lieber nochmal probieren?",
+    "🏅 Kreativ, aber ich würde’s nicht anfassen.",
+    "🧪 Das könnte in 200 Jahren das Standardprodukt werden. Wer weiß!"
+  ];
+
+  btn.addEventListener("click", () => {
+    const mat = document.getElementById("seal-material").value;
+    const col = document.getElementById("seal-color").value;
+    const hard = document.getElementById("seal-hardness").value;
+    const use = document.getElementById("seal-use").value;
+
+    if (!mat || !col || !hard || !use) {
+      result.textContent = "❗ Bitte wähle alle Optionen aus, bevor du deine Dichtung baust!";
+      return;
+    }
+
+    // Suche nach einer passenden Kombination
+    const found = combos.find(c => 
+      c.match[0] === mat && c.match[1] === col && c.match[2] === hard && c.match[3] === use
+    );
+
+    result.style.animation = "none";
+    void result.offsetWidth; // Reset Animation
+
+    result.style.animation = "fadeInResult 0.6s ease";
+    result.innerHTML = found 
+      ? found.text 
+      : funnyFallbacks[Math.floor(Math.random() * funnyFallbacks.length)];
+  });
+});
+</script>
+
+<style>
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
 </body>
 </html>
 
