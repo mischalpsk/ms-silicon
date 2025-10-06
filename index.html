@@ -464,17 +464,56 @@
                 transform: rotate(360deg);
             }
         }
-		.audio-btn {
-    display: inline-block;
-    margin: 0.5rem 0 1.5rem 0;
-    padding: 0.5rem 1rem;
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1.0rem;
-    transition: background 0.3s ease;
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-btn i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Hover-Effekt mit leichtem Schwebemoment */
+.audio-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.35);
+}
+
+/* Klick-Effekt */
+.audio-btn:active {
+  transform: scale(0.97);
+}
+
+/* Pulsierender Glow beim Abspielen */
+.audio-btn.playing {
+  animation: pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
 }
 
 .audio-btn:hover {
@@ -1012,4 +1051,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
