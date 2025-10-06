@@ -862,21 +862,21 @@ html {
                 </div>
             </div>
         </div>
-	<section id="contact" class="section" style="background: var(--light-color);">
-		<div class="container">
-		<h2 class="section-title fade-in">Kontakt</h2>
+<section id="contact" class="section" style="background: var(--light-color);">
+  <div class="container">
+    <h2 class="section-title fade-in">Kontakt</h2>
 
-		<div class="contact-card fade-in">
-		<div class="contact-info">
+    <div class="contact-card fade-in">
+      <div class="contact-info">
         <i class="fas fa-envelope"></i>
         <p><strong>E-Mail:</strong> 
           <a href="mailto:michaellapsker@ms-silicon.de">michaellapsker@ms-silicon.de</a>
         </p>
-			</div>
-			<div class="contact-info">
-			<i class="fas fa-phone"></i>
-			<p><strong>Telefon:</strong> 
-			<a href="tel:023196789065">0231 967890-65</a>
+      </div>
+      <div class="contact-info">
+        <i class="fas fa-phone"></i>
+        <p><strong>Telefon:</strong> 
+          <a href="tel:023196789065">0231 967890-65</a>
         </p>
       </div>
       <div class="contact-info">
@@ -890,10 +890,13 @@ html {
 
       <!-- 🌍 Google Maps Karte -->
       <div class="map-container fade-in">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.164071061997!2d7.467777615744379!3d51.493588879631915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b91fc8c9cb17bb%3A0x7a18b6e2b1e254f7!2sM%2BS%20Silicon%20GmbH%20%26%20Co.%20KG!5e0!3m2!1sde!2sde!4v1696352487087!5m2!1sde!2sde" 
-          allowfullscreen="" 
-          loading="lazy" 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.854520315227!2d7.504025476787499!3d51.49890747179537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b91f6782920931%3A0x2dfd34c64290d056!2sHann%C3%B6versche%20Str.%2028%2C%2044143%20Dortmund!5e0!3m2!1sde!2sde!4v1728217789864!5m2!1sde!2sde"
+          width="100%"
+          height="350"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -1006,6 +1009,28 @@ window.addEventListener("scroll", () => {
   font-weight: 600;
 }
 </style>
+<script>
+// === MOBILE NAVIGATION ===
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Öffnen / Schließen bei Klick auf Hamburger
+  mobileMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+  });
+
+  // Menü schließen, wenn ein Link angeklickt wurde
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      mobileMenu.classList.remove("open");
+    });
+  });
+});
+</script>
 </script>
 </script>
 </body>
