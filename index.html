@@ -685,6 +685,75 @@
 .audio-btn {
   margin-bottom: 2rem !important; /* erhöht Abstand nach unten */
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  left: -150px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  z-index: 0;
+}
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+}
+.footer {
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+.audio-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  box-shadow: 0 5px 20px rgba(59,130,246,0.2);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.audio-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59,130,246,0.3);
+}
+.info-card, .product-card, .training-card {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s ease;
+}
+.info-card:hover, .product-card:hover, .training-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.section-title {
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200%;
+  animation: gradientShift 8s ease-in-out infinite alternate;
+}
+@keyframes gradientShift {
+  from { background-position: 0%; }
+  to { background-position: 100%; }
+}
+
 </style>
 </head>
 <body>
@@ -1082,5 +1151,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
 
