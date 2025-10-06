@@ -643,6 +643,31 @@
     border-radius: 12px;
   }
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--dark-color); /* sorgt für nahtlosen Übergang */
+  overflow-x: hidden;
+}
+
+footer, .footer {
+  margin: 0;
+  padding-bottom: 0;
+  background: var(--dark-color);
+}
+
+/* Entfernt Lücken unter dem Footer */
+body > *:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Verhindert Rendering-Lücken durch Schatten oder Rundungen */
+html {
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--dark-color);
+}
 
 </style>
 </head>
