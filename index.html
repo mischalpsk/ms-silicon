@@ -612,6 +612,37 @@
     height: 280px;
   }
 }
+/* Timeline Mobiloptimierung */
+@media (max-width: 768px) {
+  .timeline {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .timeline::after {
+    left: 25px; /* Linie leicht nach links */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0; /* keine Versetzung mehr */
+  }
+
+  .timeline-item::after {
+    left: 16px; /* Punkt auf der Linie */
+  }
+
+  .timeline-content {
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+  }
+}
 
 </style>
 </head>
